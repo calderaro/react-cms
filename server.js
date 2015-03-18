@@ -16,6 +16,7 @@ app.get("/users/list",usersCtrl.index);
 app.post("/users/new",usersCtrl.new);
 app.post("/users/delete",usersCtrl.delete);
 app.post("/users/update",usersCtrl.update);
+app.get("/users/search/:by/:data",usersCtrl.search);
 
 
 server.listen(3000, function () {

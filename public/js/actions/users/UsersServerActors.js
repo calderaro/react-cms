@@ -66,7 +66,8 @@ module.exports = {
     })
   }
 ,search: function(by,data){
-    var sby = "name";
+
+    var sby = by;
     request
     .get(url+'search/'+sby+"/"+data)
     //.query({sby: sby, data: data})
@@ -75,10 +76,10 @@ module.exports = {
       if(res.body.err){
         console.log(res.body.err)
       }else{
-       
+
         AppDispatcher.handleViewAction({
-          type: ActionTypes.SEARCH_USERS,
-          items: res.body[plural]
+          type: ActionTypes.RECEIVE_RAW_USERS,
+          rawItems: res.body[plural]
         });
       }
     

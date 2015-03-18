@@ -14,6 +14,7 @@ var usersStore =  assign({}, EventEmitter.prototype, {
 
   init: function(rawItems) {
     _action = "isListing"; 
+    _users = {};
     rawItems.forEach(function(item) {
       _users[item._id] = {
         _id:      item._id,
@@ -70,6 +71,7 @@ usersStore.dispatchToken = AppDispatcher.register(function(payload) {
   switch(action.type) {
 
     case ActionTypes.RECEIVE_RAW_USERS:
+
       usersStore.init(action.rawItems);
       usersStore.emitChange();
       break;

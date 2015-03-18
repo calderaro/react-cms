@@ -14,9 +14,10 @@ module.exports =  {
 		});
 	},
 	new: function(req,res){
+		console.log(req.query)
 		var user =  new userModel({
-			provider: 		req.query.name,
-		    items: 		req.query.rif,
+			username: 		req.query.username,
+		    email: 		req.query.email,
 		});
 		user.save(function(err,item){
 			if(err){
@@ -55,6 +56,18 @@ module.exports =  {
 		        res.json({err:err});
 		    }
 		});
+	},
+	search: function(req,res){
+
+		userModel.find({username: new RegExp(req.params.data, "i")}, function(err, users) {
+			if (!err) {
+		        res.json({err:false,users:users});
+		    }
+		    else {
+		        res.json({err:err});
+		    }
+		});
+		
 	},
 
 	show:function(req,res){
