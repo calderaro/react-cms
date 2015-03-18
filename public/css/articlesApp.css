@@ -1,0 +1,100 @@
+
+* {
+
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body{
+  background: #03A9F4;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+@font-face {
+font-family: alternate-gothic-no-2-d;
+src: url(../fonts/alternate-gothic-no2-d.ttf);
+font-family: ralewaybold;
+src: url(../fonts/ralewaybold.ttf);
+font-family: raleway;
+src: url(../fonts/raleway.ttf);
+}
+@font-face {
+font-family: alternate-gothic-no-2-d;
+src: url(../fonts/alternate-gothic-no2-d.ttf);
+}
+.page-wrapper section {
+
+
+  height: auto;
+  width: 100%;
+}
+
+.ArticlesApp {
+  font-family: 'Muli', 'Helvetica Neue', helvetica, arial;
+  width: 100%; 
+  overflow: hidden;
+  border: 0;
+}
+.navigation{
+  height: 30px;
+  background: blue;
+  border-bottom: #B6B6B6 1px solid;
+
+}
+.navigation input{
+  height: 100%;
+}
+.navigation input[type="search"]{
+  width: 85%;
+  border: 0;
+}
+.navigation input[type="submit"]{
+  width: 15%; 
+  background: #8BC34A;
+  border: 0;
+}
+
+.article-section{
+  width: 100%;
+  overflow-y:scroll;
+  overflow-x: hidden;
+  height: 90%;
+
+}
+.article-list-item{
+  width: 100%;
+  
+  border-bottom: #B6B6B6 1px solid;
+  list-style: none;
+  background: #FFFFFF;
+}
+
+.article-body, .articles-new{
+    height: 0;
+    overflow: hidden;
+}
+.isCreating{
+  height: 95vw;
+  padding-bottom: 30px;
+}
+.active{
+  height: auto;
+  padding-bottom: 30px;
+}
+.formGroup{
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+.formGroup Input{
+  display: block;
+  width: 150px;
+
+}
+
