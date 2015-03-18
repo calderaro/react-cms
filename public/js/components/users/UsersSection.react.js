@@ -1,5 +1,6 @@
 var React = require('react');
 
+var usersStore = require('../../stores/UsersStore');
 var viewActor = require('../../actions/users/UsersViewActors');
 var serverActor = require('../../actions/users/UsersServerActors');
 
@@ -8,6 +9,7 @@ var serverActor = require('../../actions/users/UsersServerActors');
 
 function getState() {
   return {
+  		users: usersStore.getAllChrono(),
   };
 }
 
@@ -16,10 +18,11 @@ module.exports =  React.createClass({
 		return getState();
 	},
 	componentDidMount: function() {
-    	//PurchasesStore.addChangeListener(this._onChange);		
+    	usersStore.addChangeListener(this._onChange);	
+    	serverActor.get();
   	},
 	componentWillUnmount: function() {
-		//PurchasesStore.removeChangeListener(this._onChange);
+		usersStore.removeChangeListener(this._onChange);
 	},
 	_new:function(){
 
@@ -34,13 +37,17 @@ module.exports =  React.createClass({
 
 	},
   	_onChange: function() {
-
+  		this.setState(getState());
   	},
   	render: function() {
+  		console.log(this.state.users)
+  		var users = this.state.users.map(function(user){
+  			return(<div key={user._id}>{user.username}</div>)
+  		});
 
 	    return (
 	      <div className="UsersSection">
-	      		hola
+	      		{this.state.users}
 	      </div>
 	    );
   	},

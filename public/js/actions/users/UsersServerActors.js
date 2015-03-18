@@ -22,7 +22,7 @@ module.exports = {
         }else{
           if(res.body[plural]){
             AppDispatcher.handleServerAction({
-              type: ActionTypes.RECEIVE_RAW_ITEMs,
+              type: ActionTypes.RECEIVE_RAW_USERS,
               rawItems: res.body[plural]
             });
           }
@@ -40,7 +40,7 @@ module.exports = {
       console.log(res.body.err)
     }else{
       AppDispatcher.handleViewAction({
-        type: ActionTypes.SAVE_ITEM,
+        type: ActionTypes.SAVE_USER,
         item: res.body[singular]
       }); 
     }
@@ -58,7 +58,7 @@ module.exports = {
         console.log(res.body.err)
       }else{
         AppDispatcher.handleViewAction({
-          type: ActionTypes.SAVE_ITEM,
+          type: ActionTypes.SAVE_USER,
           item: item
         });
       }
@@ -77,7 +77,7 @@ module.exports = {
       }else{
        
         AppDispatcher.handleViewAction({
-          type: ActionTypes.SEARCH_ITEM,
+          type: ActionTypes.SEARCH_USERS,
           items: res.body[plural]
         });
       }
@@ -94,7 +94,7 @@ module.exports = {
         console.log(res.body.err)
       }else{
         AppDispatcher.handleViewAction({
-          type: ActionTypes.DELETE_ITEM,
+          type: ActionTypes.DELETE_USER,
           _id: itemID
         });
       }

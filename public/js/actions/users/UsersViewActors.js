@@ -7,23 +7,23 @@ module.exports = {
 
 	select: function(itemID) {
 	    AppDispatcher.handleViewAction({
-	      type: ActionTypes.CLICK_ITEM,
+	      type: ActionTypes.CLICK_USER,
 	      _id: itemID
 	    });
 	},
 	edit: function() {
 	    AppDispatcher.handleViewAction({
-	      type: ActionTypes.EDIT_ITEM,
+	      type: ActionTypes.EDIT_USER,
 	    });
 	},	
 	new: function() {
 	    AppDispatcher.handleViewAction({
-	      type: ActionTypes.NEW_ITEM,
+	      type: ActionTypes.NEW_USER,
 	    });
 	},
 	cancel: function() {
 	    AppDispatcher.handleViewAction({
-	      type: ActionTypes.CANCEL_ITEM,
+	      type: ActionTypes.CANCEL_USER,
 	      	      
 	    });
 	},
