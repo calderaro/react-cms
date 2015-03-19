@@ -20,7 +20,7 @@ module.exports = {
         if(res.body.err){
           console.log(res.body.err)
         }else{
-          if(res.body[plural]){
+          if(res.body[plural].length){//evita error al tratar de hacer init() sin users.
             AppDispatcher.handleServerAction({
               type: ActionTypes.RECEIVE_RAW_USERS,
               rawItems: res.body[plural]

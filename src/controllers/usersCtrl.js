@@ -40,17 +40,17 @@ module.exports =  {
 	},
 	update: function(req,res){
 		var user =  new userModel({
-			provider: 		req.query.name,
-		    items: 		req.query.rif,
+			username: 		req.query.username,
+		    email: 		req.query.email,
 		});
 
 		var upsertData = user.toObject();
 
 		delete upsertData._id;
 
-		userModel.update({_id: req.query._id}, upsertData, {upsert: true}, function(err){
+		userModel.update({_id: req.query._id}, upsertData, {upsert: true}, function(err,item){
 			if (!err) {
-		        res.json({err:false, result: "success"});
+		        res.json({err:false, user: item});
 		    }
 		    else {
 		        res.json({err:err});

@@ -22,13 +22,18 @@ var usersStore =  assign({}, EventEmitter.prototype, {
         email:     item.email,
       };
     }, this);
-    if (!_currentID) {
-      var allChrono = this.getAllChrono();
+    if(!_currentID){
+    var allChrono = this.getAllChrono();
       _currentID = allChrono[0]._id;
     }
   },
+  computeCurrent:function(){    
+      var allChrono = this.getAllChrono();
+      _currentID = allChrono[0]._id;
+      console.log(_currentID)
+  },
   get: function(id) {
-    return _users[_id];
+    return _users[id];
   },
   getAll: function() {
     return _users;
@@ -71,7 +76,6 @@ usersStore.dispatchToken = AppDispatcher.register(function(payload) {
   switch(action.type) {
 
     case ActionTypes.RECEIVE_RAW_USERS:
-
       usersStore.init(action.rawItems);
       usersStore.emitChange();
       break;
@@ -88,17 +92,22 @@ usersStore.dispatchToken = AppDispatcher.register(function(payload) {
       _action = "isEditing";
       usersStore.emitChange();
       break;
-    case ActionTypes.SAVE_USER:
-       _users[action.item._id] = action.item;
-       _action = "isListing";    
+     case ActionTypes.NEW_USER:
+      _action = "isCreating";
       usersStore.emitChange();
       break;
-    case ActionTypes.NEW_USER:
-      _action = "isCreating";   
+    case ActionTypes.SAVE_USER:
+     console.log(action.item)
+      if(!_currentID){
+        _currentID = action.item._id;
+      }
+      _users[action.item._id] = action.item;
+      _action = "isListing";    
       usersStore.emitChange();
       break;
     case ActionTypes.DELETE_USER:
       delete _users[action._id];
+      usersStore.computeCurrent();
       usersStore.emitChange();
       break;
     case ActionTypes.CANCEL_USER:

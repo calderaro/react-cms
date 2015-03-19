@@ -27,74 +27,64 @@ font-family: alternate-gothic-no-2-d;
 src: url(../fonts/alternate-gothic-no2-d.ttf);
 }
 .page-wrapper section {
-
-
   height: auto;
   width: 100%;
 }
-
-.ArticlesApp {
-  font-family: 'Muli', 'Helvetica Neue', helvetica, arial;
-  width: 100%; 
-  overflow: hidden;
-  border: 0;
+.UsersSection{
+  font-family: "raleway",arial;
 }
-.navigation{
-  height: 30px;
-  background: blue;
-  border-bottom: #B6B6B6 1px solid;
-
+.UsersSectionMenu {
+  background: #F2F2F2;
+  height: 40px
 }
-.navigation input{
-  height: 100%;
+.UsersSectionMenu input{
+  height: 40px;
+  padding: 0 20px 0 20px ;
 }
-.navigation input[type="search"]{
-  width: 85%;
-  border: 0;
+.UsersFeed, .UsersNew, .UsersEdit{
+  border-bottom: solid 1px #F2F2F2;
+  background: #F2F2F2;
+  padding: 0;
+  margin: 0;
 }
-.navigation input[type="submit"]{
-  width: 15%; 
-  background: #8BC34A;
-  border: 0;
-}
-
-.article-section{
+.UsersNew, .UsersEdit{
   width: 100%;
-  overflow-y:scroll;
-  overflow-x: hidden;
-  height: 90%;
-
-}
-.article-list-item{
-  width: 100%;
-  
-  border-bottom: #B6B6B6 1px solid;
-  list-style: none;
-  background: #FFFFFF;
-}
-
-.article-body, .articles-new{
-    height: 0;
-    overflow: hidden;
-}
-.isCreating{
-  height: 95vw;
-  padding-bottom: 30px;
-}
-.active{
-  height: auto;
-  padding-bottom: 30px;
-}
-.formGroup{
-  width: 100%;
+  height: 100vh;
+  overflow-x:hidden;
+  overflow-y: scroll;
   display: flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
-.formGroup Input{
-  display: block;
-  width: 150px;
+.UsersNew form, .UsersEdit form{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.UsersNew form input, .UsersEdit form input{
+  border: solid 1px #BDBDBD;
+  margin-top: 10px;
+}
+.UsersSearch{
+  width: 100%;
+  border-top: solid 1px #E6E6E6;
+  border-bottom: solid 1px #E6E6E6;
+}
+.UsersSearch input{
+  width: 100%;
+  height: 2em;
 
+}
+.UserItemList{
+  border-top: solid 1px #E6E6E6;
+  padding: 10px;
+  font-family: "raleway",arial;
+}
+.UserItemList .body{
+  background: #E6E6E6;
+  padding: 20px;
 }
 

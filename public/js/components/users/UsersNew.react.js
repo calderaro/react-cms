@@ -14,16 +14,19 @@ module.exports =  React.createClass({
 			email: this.refs.email.getDOMNode().value
 		});
 	},
-	create: function(){
+	handleSubmit: function(e) {
+		e.preventDefault();
 		ServerActor.create(this.state);
 	},
   	render: function() {
 
 	    return (
-	      <div className="UsersSearch">
-	      		<input type="text" ref="username" value={this.state.username} onChange={this.handleChange} />
-	      		<input type="text" ref="email" value={this.state.email} onChange={this.handleChange} />
-	      		<input type="submit" onClick={this.create} />
+	      <div className="UsersNew">
+	      		<form  onSubmit={this.handleSubmit}>
+		      		<input type="text" ref="username" value={this.state.username} onChange={this.handleChange} />
+		      		<input type="text" ref="email" value={this.state.email} onChange={this.handleChange} />
+		      		<input type="submit"/>
+	      		</form>
 	      </div>
 	    );
   	},

@@ -20,7 +20,7 @@ module.exports =  React.createClass({
 
 	    return (
 	      <div className="UsersSearch">
-	      		<input type="text" value={this.state.search} onChange={this._search} />
+	      		<input type="search" value={this.state.search} placeholder="Search..." onChange={this._search} />
 	      </div>
 	    );
   	},

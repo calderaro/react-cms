@@ -4,15 +4,20 @@ var viewActor = require('../../actions/users/UsersViewActors');
 
 
 module.exports =  React.createClass({
+	onClick: function(){
+		viewActor.select(this.props.user._id);
+	},
   	render: function() {
+  		var body = <div className="body">
+	      			{this.props.user.email}
+	      		</div>
+
 	    return (
-	      <div className="UserItem">
-	      		<div>
-					{this.props.username}
+	      <div className="UserItemList" onClick={this.onClick}>
+	      		<div className="head">
+					<h3>{this.props.user.username}</h3>
 	      		</div>
-	      		<div>
-	      			{this.props.email}
-	      		</div>
+	      		{this.props.current?body:null}
 	      		
 	      </div>
 	    );

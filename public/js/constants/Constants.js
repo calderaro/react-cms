@@ -14,8 +14,6 @@ module.exports = {
     DELETE_USER:null,
     CANCEL_USER:null
 
-
-
   }),
 
   PayloadSources: keyMirror({
